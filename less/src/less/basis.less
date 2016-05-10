@@ -1,0 +1,45 @@
+/*
+ * Less基本语法 
+ */
+
+
+/*
+ * 最基础语法
+ */
+
+@base: #f938ab;
+body {
+    color: @base;
+}
+
+
+/*
+ * 大概长什么样
+ * 1.变量
+ * 2.函数
+ * 3.CSS样式嵌套
+ * 4.内置函数、扩展函数
+ */
+
+// 1.变量以@符号开头，冒号后为值
+@base: #f938ab;
+// 2.方法定义(minxin)，在minxins.less中有更多示例
+.box-shadow(@style, @c) when (iscolor(@c)) {
+    -webkit-box-shadow: @style @c;
+    box-shadow: @style @c;
+}
+
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+    // 4.扩展了rgba
+    .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+// 3.样式嵌套
+.box {
+    // 4.内置函数
+    color: saturate(@base, 5%);
+    border-color: lighten(@base, 30%);
+    div {
+        .box-shadow(0 0 5px, 30%)
+    }
+}

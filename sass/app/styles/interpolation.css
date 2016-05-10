@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/*
+ * 变量插值
+ */
+.ui-button {
+  color: #333; }
+
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto; }
+  .banner:hover {
+    font-weight: normal; }
+
+body {
+  color: #444;
+  background: url("../img/white-sand.png"); }
+
+.widget {
+  color: #0ee;
+  background-color: #999;
+  /* ps: 此时自动格式化结构可能会变哦——>编译出错 */ }
+
+/*其他*/
+@media screen and (orientation: landscape) {
+  body {
+    width: 1000px; } }
+
+@keyframes ui-fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

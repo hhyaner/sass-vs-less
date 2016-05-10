@@ -1,0 +1,80 @@
+/*
+ * 变量插值
+ */
+
+// 1.选择器插值
+@my-selector: banner;
+
+// Usage
+.@{my-selector} {
+    font-weight: bold;
+    line-height: 40px;
+    margin: 0 auto;
+    &:hover{
+    	font-weight: normal;
+    }
+}
+
+@prefix: ui;
+.@{prefix}-button {
+    color: #333;
+    &:hover{
+      color: #666;
+    }
+}
+
+
+// 2.URLs插值
+@images: "../img";
+
+// Usage
+body {
+    color: #444;
+    background: url("@{images}/white-sand.png");
+}
+
+
+// 3.Import 插值
+@themes: "../../src/less";
+
+// 在sass中，仅在url表达式时才能进行变量插值
+@import "@{themes}/basis.less";
+
+// 4.属性名插值
+@property: color;
+
+.widget {
+    @{property}: #0ee;
+    background-@{property}: #999;
+    /* ps: 此时自动格式化结构可能会变哦——>编译出错 */
+}
+
+// 5.变量名插值，Sass不支持哦。
+@fnord: "I am fnord.";
+@var: "fnord";
+body {
+    content: @@var;
+}
+
+/*其他*/
+//三种预处理器均支持在 @media、@keyframes、@counter-style 等规则中进行插值。
+@m: screen;
+@orient: landscape;
+@media @m and (orientation: @orient) {
+    body {
+        width: 960px;
+    }
+}
+
+
+// 注意这里的语法略微有些不同
+// 在此处不如sass语法那么一致
+@prefix: ui;
+@keyframes ~"@{prefix}-fade-in" {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

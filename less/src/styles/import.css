@@ -1,0 +1,17 @@
+@import 'import_file.ext';
+body {
+  padding: 0;
+  margin: 0;
+}
+.elps,
+.username {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+body {
+  color: #333;
+}
+.username {
+  width: 240px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>First Less page</title>
+    <!-- <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+    <link rel="stylesheet/less" type="text/css" href="less/login.less" />
+    <script src="less.js" type="text/javascript"></script> -->
+    <link rel="stylesheet" href="styles/import.css">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">登录</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    用户名：
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    密码：
+                </td>
+                <td>
+                    <input type="password">
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="登陆">
+                    <input type="reset" value="重填">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <script type="text/javascript">
+    var list = [{
+        name: 'name1',
+        tpye: 1
+    }, {
+        name: 'name2',
+        tpye: 1
+    }];
+
+    var list2 = list;
+    list2.push({
+        name: 'name1',
+        type: 2
+    });
+    console.log(list);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/* 
+ * 继承 
+ */
+.btn, .btn-normal, .btn-big {
+  display: inline-block; }
+
+.msg, .message, .warning {
+  background: #f60; }
+
+.error.message, .error.warning {
+  font-size: 12px; }
+
+.message, .warning {
+  padding: 10px;
+  border: 1px solid #eee; }
+  .message a, .warning a, .message #demo .overview .fakelink, #demo .overview .message .fakelink, .warning #demo .overview .fakelink, #demo .overview .warning .fakelink {
+    color: #f60; }
+    .message a:hover, .warning a:hover, .message #demo .overview .fakelink:hover, #demo .overview .message .fakelink:hover, .warning #demo .overview .fakelink:hover, #demo .overview .warning .fakelink:hover {
+      text-decoration: underline; }
+
+.warning {
+  color: #e2e21e; }
+
+tr .bucket, tr .some-class {
+  color: blue; }
+
+#admin .tabbar a, #admin .tabbar #demo .overview .fakelink, #demo .overview #admin .tabbar .fakelink {
+  font-weight: bold; }

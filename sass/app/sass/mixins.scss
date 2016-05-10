@@ -1,0 +1,42 @@
+/* 
+ * Sass的mixin有清晰明确的语法，书写上相对要繁琐
+ * 1.不存在混入已有样式的情况
+ * 2.同名mixin覆盖之前的样式
+ * 3.使用mixin后，对作用域的影响不同。
+ */
+
+.alert {
+    font-weight: 700;
+}
+
+@mixin highlight($color: red) {
+    font-size: 1.2em;
+    color: $color;
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.heads-up {
+    // .alert;
+    @include highlight();
+}
+
+@mixin large-text {
+    font: {
+        family: Arial;
+        size: 20px;
+        weight: bold;
+    }
+    color: #ff0000;
+}
+
+@mixin large-text {
+    font-size: 15px;
+}
+
+.page-title {
+    @include large-text;
+    padding: 4px;
+    margin-top: 10px;
+}

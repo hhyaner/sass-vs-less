@@ -1,0 +1,93 @@
+/* 
+ * Nested Rules
+ * & 在嵌套的规则集中引用上层的选择器。
+ */
+
+
+/* basic */
+
+#main p {
+    color: #00ff00;
+    width: 97%;
+    .redbox {
+        background-color: #ff0000;
+        color: #000000;
+    }
+}
+
+
+/* end basic */
+
+.funky {
+    font: {
+        family: Simsun;
+        size: 20em;
+        weight: bold;
+    }
+}
+
+
+/* Referencing Parent Selectors: & */
+
+#main {
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        // 1.经常使用
+        &:hover {
+            text-decoration: underline;
+        }
+        // 2.大家可能很少使用，在兼容性处理适用。
+        // 看了台历引入的公共样式源码中，有类似的处理，建议使用这个。
+        body.firefox & {
+            font-weight: normal;
+        }
+    }
+    /* 3.css代码命名前缀，挺好。*/
+    &-sidebar {
+        border: 1px solid;
+    }
+}
+
+// 在一个选择器中用两次及以上 & 且父选择器是一个列表时，Less与Sass会对选择器进行排列组合
+// 4.不推荐使用
+.a,
+.b {
+    & & {
+        font-size: 14px;
+    }
+}
+
+
+/* 来尘世走一遭 */
+
+article,
+aside,
+nav,
+section {
+    h1 {
+        margin-top: 0.83em;
+        margin-bottom: 0.83em;
+        font-size: 1.50em;
+    }
+    & & h1 {
+        margin-top: 1.00em;
+        margin-bottom: 1.00em;
+        font-size: 1.17em;
+    }
+    & & & h1 {
+        margin-top: 1.33em;
+        margin-bottom: 1.33em;
+        font-size: 1.00em;
+    }
+    & & & & h1 {
+        margin-top: 1.67em;
+        margin-bottom: 1.67em;
+        font-size: 0.83em;
+    }
+    & & & & & h1 {
+        margin-top: 2.33em;
+        margin-bottom: 2.33em;
+        font-size: 0.67em;
+    }
+}

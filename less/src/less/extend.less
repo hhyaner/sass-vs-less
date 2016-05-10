@@ -1,0 +1,62 @@
+/* 
+ * 继承 
+ */
+
+// 1) Less可采用伪类方式继承，Sass不支持啦
+.btn{
+    display: inline-block;
+}
+// 1.1) 伪类方式继承
+.btn-normal:extend(.btn){
+
+}
+// 1.2) 关键字extend标明
+.btn-big{
+  &:extend(.btn);
+}
+
+// 2) 继承.d.x或.d.x，需要加all关键字
+// extends all instances of ".d" e.g. ".x.d" or ".d.x"
+// 语法如下
+.c:extend(.d all) {
+    //extends all instances of ".d" e.g. ".x.d" or ".d.x"
+}
+
+.msg{
+    background: #f60;
+}
+.error.message{
+    font-size: 12px;
+}
+.message {
+    padding: 10px;
+    border: 1px solid #eee;
+    a{
+    	color: #f60;
+    	&:hover{
+    		  text-decoration: underline;
+    	}
+    }
+}
+// Usage
+.warning:extend(.message all){
+    color: #e2e21e;
+}
+
+// 3) Sass多选择器问题，在Less中不存在，
+//    且在Less继承中可以有CSS层级，而Sass不可以有
+.bucket {
+    color: #f60;
+    tr & {
+        // nested ruleset with target selector
+        color: blue;
+    }
+}
+.some-class{
+    &:extend(tr .bucket);
+    font-weight: bold;
+}
+
+// 4) 错误处理，在Less中继承不一个不存在的不会报错可直接编译
+.some-class:extend(.happy) {}
+

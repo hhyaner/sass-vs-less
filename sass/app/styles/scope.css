@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/*
+ * 变量作用域
+ */
+/* Scope.scss 文件*/
+#header {
+  content: "First content"; }
+
+#main {
+  content: "First content in main"; }
+
+#footer {
+  content: "second content"; }
+
+body {
+  font-size: 14px;
+  color: #f60; }
+
+/* 懒加载（与Less进行比较）*/
+#header {
+  content: "First content"; }
+
+#main {
+  content: "First content in main"; }
+
+#footer {
+  content: "second content"; }
+
+/* !global */
+#main {
+  width: 5em; }
+
+#sidebar {
+  width: 5em; }
+
+/* !default */
+#main {
+  content: "First content";
+  new-content: "First time reference"; }

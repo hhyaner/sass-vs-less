@@ -1,0 +1,46 @@
+@import 'variable';
+
+/* Less 使用变量值的变量值 */
+@fnord: "I am fnord.";
+@var: "fnord";
+
+body{
+    content: @@var;
+}
+/* END Less 使用变量值的变量值 */
+
+
+@main_color: #666;
+// quick import
+//@import "../../est/src/all.less";
+// override global variables
+@support-ie-version: 10;
+// @default-font-size: 14px;
+// ...your own awesome less code starts here...
+body {
+    color: @main_color;
+    background-color: #ff0;
+   //font-size: @default-font-size;
+    display: inline-block;
+}
+
+p {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div {
+    height: 200px;
+}
+
+ul {
+    li {
+        padding-left: 10px;
+    }
+}
+
+@width: 5em;
+@main: .main;
+@main {
+    width: @width;
+}

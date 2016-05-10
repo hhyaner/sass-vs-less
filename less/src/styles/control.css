@@ -1,0 +1,14 @@
+/*
+ * 逻辑控制
+ * 在less中没有if/else分支以及for/each/while循环，全靠mixin来控制
+ */
+body {
+  color: rgba(0, 0, 0, 0.5);
+}
+div {
+  width: 10px;
+  width: 20px;
+  width: 30px;
+  width: 40px;
+  width: 50px;
+}

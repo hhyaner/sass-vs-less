@@ -1,0 +1,27 @@
+body {
+  color: #666;
+  font-size: 14px;
+}
+/* Less 使用变量值的变量值 */
+body {
+  content: "I am fnord.";
+}
+/* END Less 使用变量值的变量值 */
+body {
+  color: #666;
+  background-color: #ff0;
+  display: inline-block;
+}
+p {
+  font-weight: bold;
+  font-size: 16px;
+}
+div {
+  height: 200px;
+}
+ul li {
+  padding-left: 10px;
+}
+@main {
+  width: 5em;
+}

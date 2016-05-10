@@ -1,0 +1,41 @@
+/* 
+ * 继承 
+ */
+.btn,
+.btn-normal,
+.btn-big {
+  display: inline-block;
+}
+.msg {
+  background: #f60;
+}
+.error.message,
+.error.warning {
+  font-size: 12px;
+}
+.message,
+.warning {
+  padding: 10px;
+  border: 1px solid #eee;
+}
+.message a,
+.warning a {
+  color: #f60;
+}
+.message a:hover,
+.warning a:hover {
+  text-decoration: underline;
+}
+.warning {
+  color: #e2e21e;
+}
+.bucket {
+  color: #f60;
+}
+tr .bucket,
+.some-class {
+  color: blue;
+}
+.some-class {
+  font-weight: bold;
+}

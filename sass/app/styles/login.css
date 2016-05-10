@@ -1,0 +1,38 @@
+body {
+  background-color: #ff0;
+  display: inline-block; }
+
+p {
+  font-weight: bold;
+  font-size: 16px; }
+
+div {
+  height: 200px; }
+
+ul li {
+  padding-left: 10px; }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+nav li {
+  display: inline-block; }
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none; }
+
+.funky {
+  font-family: fantasy;
+  font-size: 30em;
+  font-weight: bold; }
+
+.box {
+  display: block; }
+
+table {
+  table-layout: fixed;
+  background-color: #f0f0f0; }

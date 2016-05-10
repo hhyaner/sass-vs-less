@@ -1,0 +1,32 @@
+/*
+ * 逻辑控制
+ * 在less中没有if/else分支以及for/each/while循环，全靠mixin来控制
+ */
+
+// 1.mixin的[guard]支持简单的条件分支控制
+
+.mixin(@val) when (isruleset(@val)) {
+    @val();
+}
+.mixin(@val) when (iscolor(@val)) {
+    color: @val;
+}
+
+.mixin(@val) when (default()) {
+    // default() in guards acts as else
+    color: #666;
+}
+
+body {
+    .mixin(rgba(0, 0, 0, .5));
+}
+
+// 2.进阶循环，官网提供模拟循环的例子
+.loop(@counter) when (@counter > 0) {
+    .loop((@counter - 1)); // next iteration
+    width: (10px * @counter); // code for each iteration
+}
+
+div {
+    .loop(5); // launch the loop
+}

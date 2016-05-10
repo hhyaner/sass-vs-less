@@ -1,0 +1,70 @@
+/* 
+ * 继承 
+ */
+
+
+.btn{
+    display: inline-block;
+}
+.btn-normal{
+    @extend .btn;
+}
+.btn-big{
+    @extend .btn;
+}
+
+
+// 1) Less可采用伪类方式继承，Sass不支持啦
+// 2) 自动继承.d.x或.d.x
+.msg {
+    background: #f60;
+}
+
+.error.message {
+    font-size: 12px;
+}
+
+.message {
+    @extend .msg;
+    padding: 10px;
+    border: 1px solid #eee;
+    a {
+        color: #f60;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// 2) .warning会自动继承.error.message，Less需要加all关键字
+.warning {
+    @extend .message;
+    color: #e2e21e;
+}
+
+// 3) Sass多选择器问题。尽量避免这样继承，Less不存在该问题
+// 3.1) 最后生成为：tr .bucket, tr .some-class{} 
+.bucket {
+    tr & {
+        // nested ruleset with target selector
+        color: blue;
+    }
+}
+
+.some-class {
+    @extend .bucket;
+}
+
+// 3.2) 查看生成的代码
+#admin .tabbar a {
+    font-weight: bold;
+}
+
+#demo .overview .fakelink {
+    @extend a;
+}
+
+// 4) 集成一个不存在的选择器，默认出错，加上!option就OK。
+a.important {
+    @extend .notice !optional;
+}

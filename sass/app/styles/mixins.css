@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* 
+ * Sass的mixin有清晰明确的语法，书写上相对要繁琐
+ * 1.不存在混入已有样式的情况
+ * 2.同名mixin覆盖之前的样式
+ * 3.使用mixin后，对作用域的影响不同。
+ */
+.alert {
+  font-weight: 700; }
+
+.heads-up {
+  font-size: 1.2em;
+  color: red; }
+  .heads-up:hover {
+    font-weight: bold; }
+
+.page-title {
+  font-size: 15px;
+  padding: 4px;
+  margin-top: 10px; }

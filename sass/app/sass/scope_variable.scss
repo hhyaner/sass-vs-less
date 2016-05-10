@@ -1,0 +1,17 @@
+$content: "First content";
+
+#header {
+    content: $content;
+}
+
+#main {
+    $content: "First content in main";
+    content: $content;
+}
+
+$content: "second content";
+#footer {
+    content: $content;
+    // 在声明之前调用报错
+    // width: $size;
+}

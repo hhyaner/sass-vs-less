@@ -1,0 +1,15 @@
+@mixin mixin($val:#666) {
+    @if iscolor($val) {
+        color: $val;
+    }
+    @else if isruleset($val) {
+        color: #f60;
+    }
+    @else {
+        color: #666;
+    }
+}
+
+body {
+    @include mixin(rgba(0, 0, 0, .5));
+}

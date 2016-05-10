@@ -1,0 +1,12 @@
+$c_main:#333;
+
+body{
+	padding:0;
+	margin:0;
+}
+
+.elps {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

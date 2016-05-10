@@ -1,0 +1,81 @@
+/*
+ * 变量作用域
+ */
+
+// @import 'scope_variable';
+
+/* Scope.scss 文件*/
+
+$content: "First content";
+#header {
+    content: $content;
+}
+
+#main {
+    $content: "First content in main";
+    content: $content;
+}
+
+$content: "second content";
+#footer {
+    content: $content;
+    // 在声明之前调用报错
+    // width: $size;
+}
+
+
+
+$base:#f60;
+body {
+    $font-size: 14px;
+    // $font-size当前嵌套内
+    font-size: $font-size;
+    // 向上查找
+    color: $base;
+}
+
+
+/* 懒加载（与Less进行比较）*/
+
+$content: "First content";
+#header {
+    content: $content;
+}
+
+#main {
+    $content: "First content in main";
+    content: $content;
+}
+
+$content: "second content";
+#footer {
+    content: $content;
+    // 在声明之前调用报错
+    // width: $size;
+}
+
+// 在调用之后声明报错
+// $size: 1000px; 
+
+/* !global */
+
+#main {
+    $width: 5em !global;
+    width: $width;
+}
+
+#sidebar {
+    width: $width;
+}
+
+
+/* !default */
+
+$content: "First content";
+$content: "Second content?" !default;
+$new_content: "First time reference" !default;
+
+#main {
+    content: $content;
+    new-content: $new_content;
+}

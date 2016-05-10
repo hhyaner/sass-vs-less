@@ -1,0 +1,43 @@
+/*
+ * 变量作用域
+ */
+@import 'scope_variable.less';
+
+// @import 'gray.less';
+
+@main-color:#333;
+body{
+    color: @main-color;
+    font-size: 13px;
+}
+
+body {
+    @font-size: 14px;
+    // $font-size当前嵌套内
+    font-size: @font-size;
+    // 向上查找
+    // color: @base;
+}
+
+// 懒加载
+@content: "First content";
+#header {
+	// 看我1
+    content: @content;
+}
+
+#main {
+    @content: "First content in main";
+    // 嵌套内的变量
+    content: @content;
+}
+
+@content: "second content";
+#footer {
+	// 看我2
+    content: @content;
+    // 变量声明之前使用
+    width: @size;
+}
+
+@size: 1000px;

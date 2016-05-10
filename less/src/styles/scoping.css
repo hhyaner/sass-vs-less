@@ -1,0 +1,23 @@
+/*
+ * 变量作用域
+ */
+body {
+  color: #333;
+}
+body {
+  color: #333;
+  font-size: 13px;
+}
+body {
+  font-size: 14px;
+}
+#header {
+  content: "second content";
+}
+#main {
+  content: "First content in main";
+}
+#footer {
+  content: "second content";
+  width: 1000px;
+}

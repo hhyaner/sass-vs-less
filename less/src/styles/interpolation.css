@@ -1,0 +1,67 @@
+/*
+ * 变量插值
+ */
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+.banner:hover {
+  font-weight: normal;
+}
+.ui-button {
+  color: #333;
+}
+.ui-button:hover {
+  color: #666;
+}
+body {
+  color: #444;
+  background: url("../img/white-sand.png");
+}
+/*
+ * Less基本语法 
+ */
+/*
+ * 最基础语法
+ */
+body {
+  color: #f938ab;
+}
+/*
+ * 大概长什么样
+ * 1.变量
+ * 2.函数
+ * 3.CSS样式嵌套
+ * 4.内置函数、扩展函数
+ */
+.box {
+  color: #fe33ac;
+  border-color: #fdcdea;
+}
+.box div {
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.widget {
+  color: #0ee;
+  background-color: #999;
+  /* ps: 此时自动格式化结构可能会变哦——>编译出错 */
+}
+body {
+  content: "I am fnord.";
+}
+/*其他*/
+@media screen and (orientation: landscape) {
+  body {
+    width: 960px;
+  }
+}
+@keyframes ui-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

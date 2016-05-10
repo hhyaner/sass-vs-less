@@ -1,0 +1,170 @@
+/*
+1.minxins不加括号，在调用的地方怎知是哪种样式混入？如.alert是一个HTML class么？ 团队内部需要规范
+2.Less 在进行混入时，会找到所有符合调用参数的「mixin 签名」的样式一起输出，带来的问题如果存在和 mixin 同名的 class 样式，如果 mixin 没有参数则在调用时会把对应的 class 样式一起输出，这显然是不符合预期的。 这一点在开发中一定要注意，不要给和非输出型 mixin 同名的类定义样式。
+*/
+
+.alert {
+    font-weight: 700;
+}
+
+.highlight(@color: red) {
+    font-size: 1.2em;
+    color: @color;
+    &:hover {
+        font-weight: bold;
+    }
+}
+
+.heads-up {
+    // 1.样式混入
+    // .alert()也可,加括号或不加括号,其他方式的混入也是。
+    .alert;
+    // 2.Not Outputting the Mixin
+    // .highlight(red);
+    .highlight;
+}
+
+// Namespaces
+// 
+#outer {
+    .inner {
+        color: red;
+    }
+}
+
+.c {
+    // 下面的写法都是一致的
+    #outer.inner;
+    // #outer > .inner;
+    // #outer > .inner();
+    // #outer .inner;
+    // #outer .inner();
+    // #outer.inner;
+    // #outer.inner();
+}
+
+// !important
+.foo (@bg: #f5f5f5, @color: #900) {
+    background: @bg;
+    color: @color;
+}
+
+.unimportant {
+    .foo();
+}
+
+.important {
+    .foo() !important;
+}
+
+// Less 在进行混入时，会找到所有符合调用参数的「mixin 签名」的样式一起输出。
+.mixin(@color) {
+    color-1: @color;
+}
+
+.mixin(@color;
+@padding: 2) {
+    color-2: @color;
+    padding-2: @padding;
+}
+
+.mixin(@color;
+@padding;
+@margin: 2) {
+    color-3: @color;
+    padding-3: @padding;
+    margin: @margin @margin @margin @margin;
+}
+
+.some .selector div {
+    .mixin(#008000);
+}
+
+// Named Parameters
+#mixin2(@color: black;
+@margin: 10px;
+@padding: 20px) {
+    color: @color;
+    margin: @margin;
+    padding: @padding;
+}
+
+.class1 {
+    #mixin2(@margin: 20px;
+    @color: #33acfe);
+}
+
+.class2 {
+    #mixin2(#efca44;
+    @padding: 40px);
+}
+
+// The @arguments Variable
+.box-shadow(@x: 0;
+@y: 0;
+@blur: 1px;
+@color: #000) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+
+.big-block {
+    .box-shadow(2px;
+    5px);
+}
+
+// Advanced Arguments and the @rest Variable ...
+.mixin3(...) {
+    // matches 0-N arguments
+}
+
+.mixin3() {
+    // matches exactly 0 arguments
+}
+
+.mixin3(@a: 1) {
+    // matches 0-1 arguments
+}
+
+.mixin3(@a: 1;
+...) {
+    // matches 0-N arguments
+}
+
+.mixin3(@a;
+...) {
+    // matches 1-N arguments
+}
+
+// Pattern-matching
+
+.mixin4(dark; @color) {
+  color: darken(@color, 10%);
+}
+.mixin4(light; @color) {
+  color: lighten(@color, 10%);
+}
+.mixin4(@_; @color) {
+  display: block;
+}
+
+
+@switch: light;
+
+.class4 {
+  .mixin4(@switch; #888);
+}
+
+
+// Mixins as Function
+.mixin5() {
+  @width:  100%;
+  @height: 200px;
+}
+
+.caller {
+  .mixin5();
+  width:  @width;
+  height: @height;
+}

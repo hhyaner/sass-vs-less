@@ -1,0 +1,12 @@
+@import 'import_file.scss';
+@import 'import_file.scss';
+
+body {
+    color: $c_main;
+}
+.username{
+	width: 240px;
+	@extend .elps;
+}
+// @import (less,multiple) 'import_file.ext';
+
